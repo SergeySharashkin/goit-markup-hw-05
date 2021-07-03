@@ -110,8 +110,25 @@ img {
   color: var(--accent-color);
 }
 .link {
+  position: relative;
+
   color: var(--primary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link::after {
+  content: "";
+  bottom: 0;
+  left: 0;
+
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link:hover::after {
+  background-color: var(--accent-color);
 }
 
 .link:hover,
@@ -127,8 +144,8 @@ img {
   padding: auto;
   align-items: center;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-  fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-button:hover .icon-cont,
 .contacts-button:focus .icon-cont {
@@ -167,12 +184,10 @@ img {
 .contacts .mail:hover,
 .contacts .mail:focus {
   color: var(--accent-color);
-
 }
 .contacts .tel:hover,
 .contacts .tel:focus {
   color: var(--accent-color);
- 
 }
 .hero-bgr {
   background-color: var(--hero-bgr-color);
@@ -216,6 +231,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -229,6 +245,7 @@ img {
 
   min-width: 528px;
   min-height: 581px;
+  border-radius: 4px;
 
   background-color: var(--hero-text-color);
 }
@@ -242,16 +259,14 @@ img {
 
   border: 1px solid #0f0b0b49;
   border-radius: 15px;
-  display: block;
-  padding: 0;
-  background-color: var(--hero-text-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  cursor: pointer;
 }
-.button-close {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+
 .button {
   font-family: inherit;
   cursor: pointer;
@@ -259,6 +274,9 @@ img {
   border-radius: 4px;
   text-align: center;
   padding-bottom: 0;
+}
+.button:hover {
+  cursor: pointer;
 }
 .button-prim {
   color: var(--hero-text-color);
@@ -287,18 +305,16 @@ img {
   padding-left: 22px;
   padding-right: 22px;
 
-  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-sec:focus,
 .button-sec:hover {
   background-color: var(--accent-color);
   color: var(--hero-text-color);
-  
-  box-shadow: 0px 2px 2px 0px #0000001F, 
-  0px 1px 2px 0px #00000014, 
-  0px 3px 1px 0px #0000001A;
 
+  box-shadow: 0px 2px 2px 0px #0000001f, 0px 1px 2px 0px #00000014,
+    0px 3px 1px 0px #0000001a;
 }
 .padding-section {
   padding-bottom: 0px;
@@ -315,7 +331,6 @@ img {
   background-color: var(--button-bgr-color);
 
   padding: 0;
-  border: none;
   border-radius: 4px;
   width: 270px;
   height: 120px;
@@ -375,9 +390,32 @@ img {
   display: flex;
   margin-right: 30px;
   width: 370px;
+  position: relative;
 }
 .occupation-form:last-child {
   margin-right: 0px;
+}
+.occupation-text {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 370px;
+  height: 70px;
+
+  background-color: rgba(47, 48, 58, 0.8);
+  z-index: 1;
+}
+.occupation-text > p {
+  color: var(--hero-text-color);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  text-transform: uppercase;
 }
 .team {
   background-color: var(--button-bgr-color);
@@ -404,8 +442,7 @@ img {
   border-radius: 0 0 4px 4px;
   background-color: var(--hero-text-color);
   box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024,
-  0px 1px 3px 0px #0000001F;
-
+    0px 1px 3px 0px #0000001f;
 }
 .team-form:last-child {
   margin-right: 0px;
@@ -448,7 +485,8 @@ img {
   align-items: center;
   justify-content: center;
   fill: var(--icon-color);
-  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-social {
   display: flex;
@@ -462,7 +500,7 @@ img {
 .button-icon:hover,
 .button-icon:focus {
   fill: var(--hero-text-color);
-  
+  background-color: var(--accent-color);
 }
 .client-tittle {
   font-size: 36px;
@@ -477,6 +515,9 @@ img {
   align-items: center;
   justify-content: center;
   fill: var(--icon-color);
+
+  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   border-radius: 4px;
   border: 1px solid var(--icon-color);
@@ -493,7 +534,7 @@ img {
 }
 .client-icon {
   cursor: pointer;
-  fill: var(--icon-color);
+  fill: inherit;
 }
 .button-client:focus,
 .button-client:hover {
@@ -552,7 +593,7 @@ img {
   text-align: left;
 
   display: block;
-  transition: color 250ms ease;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .addr .tel {
   color: rgba(255, 255, 255, 0.6);
@@ -560,17 +601,15 @@ img {
   letter-spacing: 0.02em;
   text-align: left;
 
-  transition: color 250ms ease;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .addr .mail:hover,
 .addr .mail:focus {
   color: var(--accent-color);
-  
 }
 .addr .tel:hover,
 .addr .tel:focus {
   color: var(--accent-color);
- 
 }
 .foot-motivation {
   font-size: 14px;
@@ -602,6 +641,7 @@ img {
   height: 100%;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transform: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-foot:hover,
 .button-foot:focus {
@@ -635,7 +675,7 @@ img {
   margin-right: 30px;
   margin-bottom: 30px;
   width: 370px;
-  
+
   transition: transform 250ms ease;
 }
 .work-form:nth-last-child(3n + 1) {
@@ -645,14 +685,12 @@ img {
   margin-bottom: 0;
 }
 .work-form:hover .overlay-work {
-  transform: translatex(0);
-
+  transform: translatex(0), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .work-form:hover,
 .work-form:focus {
-  box-shadow: 1px 4px 6px 0px #00000029,
-   0px 4px 4px 0px #0000000F, 0px 1px 1px 0px #0000001F;
-
+  box-shadow: 1px 4px 6px 0px #00000029, 0px 4px 4px 0px #0000000f,
+    0px 1px 1px 0px #0000001f;
 }
 
 .overlay-work {
@@ -673,7 +711,7 @@ img {
   letter-spacing: 0.03em;
 
   padding: 63px 24px;
-  
+
   color: var(--hero-text-color);
 }
 
@@ -703,9 +741,6 @@ img {
   border-right: 1px solid #eeeeee;
 }
 
-
-
-}
 .work-type {
   font-weight: normal;
   font-size: 16px;
