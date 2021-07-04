@@ -58,7 +58,7 @@ img {
 .section {
   padding-bottom: 94px;
   padding-top: 94px;
-  
+
   margin: auto;
   max-width: 1600px;
 }
@@ -117,10 +117,9 @@ img {
   position: relative;
 
   color: var(--primary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.link::after {
+.site-nav .link.current:after {
   content: "";
   bottom: 0;
   left: 0;
@@ -129,11 +128,10 @@ img {
   width: 100%;
   height: 4px;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.link:hover::after {
   background-color: var(--accent-color);
+  
 }
+
 
 .link:hover,
 .link:focus {
@@ -147,20 +145,14 @@ img {
   flex-wrap: wrap;
   padding: auto;
   align-items: center;
+}
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.contacts-button:hover .icon-cont,
-.contacts-button:focus .icon-cont {
-  fill: var(--accent-color);
-  color: var(--accent-color);
-}
 
 .icon-cont {
   display: inline-block;
-  fill: var(--tittle-text-color);
+  fill: inherit;
   margin-right: 10px;
+  
 }
 .contacts .item + .item {
   margin-left: 50px;
@@ -172,8 +164,10 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  fill: var(--icon-color);
 
-  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts .tel {
   color: var(--tittle-text-color);
@@ -182,16 +176,21 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  fill: var(--icon-color);
 
-  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts .mail:hover,
 .contacts .mail:focus {
   color: var(--accent-color);
+  fill: var(--accent-color);
+
 }
 .contacts .tel:hover,
 .contacts .tel:focus {
   color: var(--accent-color);
+  fill: var(--accent-color);
 }
 .hero-bgr {
   background-color: var(--hero-bgr-color);
@@ -220,7 +219,6 @@ img {
     ),
     url("../images/Img17.jpg");
   background-position: center;
- 
 }
 .hero-tittle {
   color: var(--hero-text-color);
@@ -241,10 +239,13 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 2;
+  transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  
 }
 .modal {
   position: absolute;
@@ -286,8 +287,8 @@ img {
 }
 .button:hover {
   cursor: pointer;
-  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-prim {
   color: var(--hero-text-color);
@@ -316,7 +317,7 @@ img {
   padding-left: 22px;
   padding-right: 22px;
 
-  transform: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-sec:focus,
@@ -498,7 +499,7 @@ img {
   align-items: center;
   justify-content: center;
   fill: var(--icon-color);
-  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-social {
@@ -508,7 +509,6 @@ img {
   fill: inherit;
   justify-content: center;
   align-items: center;
-  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-icon:hover,
 .button-icon:focus {
@@ -530,7 +530,7 @@ img {
   justify-content: center;
   fill: var(--icon-color);
 
-  transform: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   border-radius: 4px;
@@ -569,8 +569,6 @@ img {
   padding-bottom: 60px;
   margin: auto;
   max-width: 1600px;
-
-  
 }
 .foot {
   display: flex;
@@ -660,7 +658,7 @@ img {
   height: 100%;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
-  transform: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-foot:hover,
 .button-foot:focus {
@@ -696,7 +694,7 @@ img {
   width: 370px;
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .work-form:nth-last-child(3n + 1) {
   margin-right: 0;
